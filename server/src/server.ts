@@ -6,7 +6,11 @@ import path from 'node:path';
 import db from './config/connection.js';
 import { authenticateToken } from './utils/auth.js';
 import type { Request, Response } from 'express';
+import { fileURLToPath } from 'node:url';
 
+// Define __dirname for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const server = new ApolloServer({
   typeDefs,
